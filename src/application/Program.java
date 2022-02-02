@@ -23,11 +23,10 @@ public class Program {
 		
 		Order order = new Order(numberOrder, new Customer(customerName));
 		
-		System.out.println("How many products ?");
-		int n = sc.nextInt();
+		boolean test = true;
 		
 		
-		for(int i = 0; i < n; i++) {
+		 while (test != false){
 			System.out.println("Enter code product: ");
 			Integer productCode = sc.nextInt();
 			
@@ -46,6 +45,15 @@ public class Program {
 			Product product = new Product(productCode, productName, new Department(productDepartment), productPrice, productQuantity);
 			order.addProduct(product);
 		
+			System.out.println("Add more products ? (Y/N)");
+			String option = sc.next();
+			
+			if(option.equals("y")) {
+				test = true;
+			}
+			else {
+				test = false;
+			}
 		}
 		
 		System.out.println("Total Value: " + order.total());		
